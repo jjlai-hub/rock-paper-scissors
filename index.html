@@ -20,6 +20,42 @@
                     break;
             }
         }
+
+        function playRound(playerSelection, computerSelection) {
+
+            let a = playerSelection.toLowerCase();
+
+            let b = computerSelection.toLowerCase();
+
+            if (a === b) {
+
+                return 'Draw! No winner.';
+
+            } else if (a === 'rock' && b === 'paper') {
+
+                return 'You Lose! Paper beats Rock.'
+
+            } else if (a === 'rock' && b === 'scissors') {
+
+                return 'You Win! Rock beats Scissors.'
+
+            } else if (a === 'paper' && b === 'rock') {
+
+                return 'You Win! Paper beats Rock.'
+
+            } else if (a === 'paper' && b === 'scissors') {
+
+                return 'You Lose! Scissors beats Paper.'
+
+            } else if (a === 'scissors' && b === 'rock') {
+
+                return 'You Lose! Rock beats Scissors.'
+
+            } else if (a === 'scissors' && b === 'paper') {
+
+                return 'You Win! Scissors beats Paper.'
+            }
+        }
     </script>
 </body>
 </html>
