@@ -56,39 +56,6 @@
                 return 'You Win! Scissors beats Paper.'
             }
         }
-
-        function game() {
-
-            let ur_score = 0;
-            let bot_score = 0;
-
-            for (let i = 0; i < 5; i++) {
-                let round = playRound(prompt("Rock, paper or scissors?"), getComputerChoice());
-
-                console.log(round);
-
-                if (round.includes('Win')) {
-                    ur_score++;
-                } else if (round.includes('Lose')) {
-                    bot_score++;
-                }
-            }
-
-            console.log('SCORE (YOU): ' + ur_score);
-
-            console.log('SCORE (BOT): ' + bot_score);
-
-            if (ur_score > bot_score) {
-                console.log('WINNER: YOU!');
-            } else if (ur_score < bot_score) {
-                console.log('WINNER: BOT!');
-            } else {
-                console.log('WINNER: NOBODY!');
-            }
-        }
-
-        game();
-        
 </script>
 </body>
 </html>
