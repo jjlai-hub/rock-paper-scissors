@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+    <button>Rock</button>
+    <button>Paper</button>
+    <button>Scissors</button>
     <script>
         function getComputerChoice() {
             switch (Math.floor(Math.random() * 3)) {
@@ -56,6 +59,17 @@
                 return 'You Win! Scissors beats Paper.'
             }
         }
+
+        function play(e) {
+            let player = e.srcElement.innerText;
+            let bot = getComputerChoice();
+            console.log(playRound(player, bot));
+        }
+
+        const allButtons = document.querySelectorAll('button');
+        allButtons.forEach(
+            button => button.addEventListener('click', play)
+        );
 </script>
 </body>
 </html>
