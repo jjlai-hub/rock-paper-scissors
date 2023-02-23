@@ -6,9 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <button>Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
+    <div id="container">
+        <button>Rock</button>
+        <button>Paper</button>
+        <button>Scissors</button>
+    </div>
     <script>
         function getComputerChoice() {
             switch (Math.floor(Math.random() * 3)) {
@@ -61,9 +63,13 @@
         }
 
         function play(e) {
+            const container = document.querySelector('#container');
+            const content = document.createElement('div');
             let player = e.srcElement.innerText;
             let bot = getComputerChoice();
-            console.log(playRound(player, bot));
+            content.innerText = playRound(player, bot);
+            content.style.margin = "10px";
+            container.appendChild(content);
         }
 
         const allButtons = document.querySelectorAll('button');
