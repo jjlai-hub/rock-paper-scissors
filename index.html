@@ -10,6 +10,9 @@
         <button>Rock</button>
         <button>Paper</button>
         <button>Scissors</button>
+        <p>This game ends once any 1 player reaches 5 points!</p>
+        <h4 id="ur_score">Score (You): 0</h4>
+        <h4 id="bot_score">Score (Bot): 0</h4>
     </div>
     <script>
         function getComputerChoice() {
@@ -62,6 +65,9 @@
             }
         }
 
+        let score_you = 0;
+        let score_bot = 0;
+
         function play(e) {
             const container = document.querySelector('#container');
             const content = document.createElement('div');
@@ -70,6 +76,20 @@
             content.innerText = playRound(player, bot);
             content.style.margin = "10px";
             container.appendChild(content);
+            if (playRound(player, bot).includes('Win')) {
+                score_you++;
+                const ur_score = document.querySelector('#ur_score');
+                ur_score.innerText = 'Score (You): ' + score_you;
+            } else if (playRound(player, bot).includes('Lose')) {
+                score_bot++;
+                const bot_score = document.querySelector('#bot_score');
+                bot_score.innerText = 'Score (Bot): ' + score_bot;
+            }
+            if (score_you === 5) {
+                alert('Ultimate winner is YOU!');
+            } else if (score_bot === 5) {
+                alert('Ultimate winner is BOT!');
+            }
         }
 
         const allButtons = document.querySelectorAll('button');
